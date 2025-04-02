@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+            text-align: center;
+            color: #333;
+        }
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+        }
+        a:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Homepage</h1>
+    <a href="{{ url_for('profile', username='Guest') }}">Go to Profile</a>
+    <a href="{{ url_for('submit') }}">Go to Submit Page</a>
+</body>
+</html>

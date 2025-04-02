@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="BookApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>  <!-- ✅ app.js first -->
+    <script src="authService.js"></script>  <!-- ✅ authService.js after -->
+    <script src="bookfilter.js"></script>    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body ng-controller="MainController">
+
+    <h2>🔗 One-Way and Two-Way Data Binding</h2>
+    <p>One-way binding: <span>{{ message }}</span></p>
+    <p>Two-way binding: <input type="text" ng-model="message"></p>
+
+    <hr>
+
+    <h2>🔑 User Login</h2>
+    <form ng-submit="login()">
+        <label>Username:</label>
+        <input type="text" ng-model="user.username" required>
+        
+        <label>Password:</label>
+        <input type="password" ng-model="user.password" required>
+        
+        <button type="submit">Login</button>
+    </form>
+    
+    <p ng-if="authMessage" style="color: red;">{{ authMessage }}</p>
+
+    <hr>
+
+    <h2>📚 Book Search</h2>
+    <input type="text" ng-model="searchText" placeholder="Search books...">
+
+    <ul>
+        <li ng-repeat="book in books | bookFilter:searchText">
+            <b>{{ book.title }}</b> by {{ book.author }} ({{ book.genre }})
+        </li>
+    </ul>
+
+</body>
+</html>
